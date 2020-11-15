@@ -19,7 +19,6 @@ body, html {
 picture {
     width: 100%;
     top: 10%;
-    /* border: 1px solid blue; */
 
     display: flex;
     justify-content: center;
@@ -44,20 +43,29 @@ h2 {
 
 svg {
     z-index: 2;
-    width: 70%;
+
     max-width: 200px;
     position: relative;
 }
 
 .album--cover {
-    width: 85%;
-    max-width: 300px;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    bottom: 0;
+
+    /* max-width: 300px;
+    max-height: 300px; */
+
 }
 
 .arco {
     position: absolute;
     top: 0;
     height: 100%;
+
+    width: 100%;
     max-width: 200px;
 
     z-index: 1;
@@ -78,6 +86,8 @@ svg {
     width: 100%;
     height: 100vh;
     top: 5%;
+
+    max-width: 160px;    
     
     display: flex;
     justify-content: center;
@@ -89,7 +99,18 @@ svg {
 }
 
 .container--album--cover {
+    position: relative;
+    border: 1px solid red;
+
     margin-bottom: 10%;
+
+    width: 250px;
+    height: 250px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .container--btns {
@@ -108,6 +129,10 @@ svg {
 }
 .svg--preto {
     fill:#2c2c2c;    
+}
+
+.play--icon {
+    width: 70px;
 }
 
 .spotify { fill: lime; }
