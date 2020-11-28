@@ -48,17 +48,64 @@ svg {
     position: relative;
 }
 
+#PAUSE__ {
+    display: none;
+}
+
+#_PLAY__LIST_ {
+    background-color: grey;
+
+    width: 250px;
+
+    margin-bottom: 10%;
+    box-sizing: border-box;
+}
+
+#_PLAY__LIST_ table {
+    width: 100%;
+}
+
+._PLAY__LIST__HEADER_ h1 {
+    font-size: 12px;
+    color: #fff;
+    font-weight: normal;
+}
+
+._PLAY__LIST__BODY_ h2 {
+    font-size: 12px;
+    color: #fff;
+    font-weight: normal;    
+}
+
+._PLAY__LIST__HEADER_, ._PLAY__LIST__BODY_ {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
 .album--cover {
     position: absolute;
     height: 100%;
     width: 100%;
 
     bottom: 0;
+    left: 0;
 
     /* max-width: 300px;
     max-height: 300px; */
 
 }
+
+.mudar--musica {
+    z-index: 10;
+    width: 10px;
+    margin: 5%;
+}
+.play--icon, #PAUSE__ {
+    width: 40px;
+}
+
 
 .arco {
     position: absolute;
@@ -87,7 +134,9 @@ svg {
     height: 100vh;
     top: 5%;
 
-    max-width: 160px;    
+    max-width: 160px;
+    min-width: 100px;
+    min-height: 400px;
     
     display: flex;
     justify-content: center;
@@ -100,7 +149,7 @@ svg {
 
 .container--album--cover {
     position: relative;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 
     margin-bottom: 10%;
 
@@ -108,9 +157,28 @@ svg {
     height: 250px;
 
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    flex-direction: column;
+
+    /* background-image: url('./IMG/cover-min.png'); */
+    /* background-image: url('./IMG/cover-min.png');    
+    background-size: cover;
+    opacity: 0.1; */
+
+    /* background-repeat: no-repeat, repeat; */
+    /* flex-direction: column; */
+}
+
+.container--album--cover::before {    
+    content: "";
+    background-image: url('./IMG/cover-min.png');
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.50;
 }
 
 .container--btns {
@@ -124,6 +192,9 @@ svg {
     flex-direction: column;
 }
 
+.svg--vermelho {
+    fill: red;
+}
 .svg--branco {
     fill: #fff;
 }
@@ -131,8 +202,10 @@ svg {
     fill:#2c2c2c;    
 }
 
-.play--icon {
-    width: 70px;
+.svg--contorno--branco {
+    stroke:#fff;
+    stroke-miterlimit:10;
+    stroke-width:2px;
 }
 
 .spotify { fill: lime; }
@@ -157,240 +230,3 @@ svg {
     stroke-width:2px;
     /* border: 1px solid red; */
 }
-
-/* @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
-
-body, html {
-    margin: 0;
-    padding: 0;
-
-    width: 100vw;
-    height: 100vh;
-
-    background-color: black;
-    border: 1px solid red;
-
-    box-sizing: border-box;
-
-    font-family: 'Roboto', sans-serif;
-}
-
-.arco {
-    border-radius: 100%;
-}
-
-.container {
-    box-sizing: content-box;
-
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-    justify-content: center;
-
-    border: 1px solid blue;
-}
-
-.multimedia {
-    width: 150px;
-    height: 80%;
-
-    transform: rotate(25deg);
-
-    border: 1px solid white;
-}
-
-.arco--elementos {
-    border-radius: 50px; 
-    padding-top: 1px;
-    padding-bottom: 1px;
-    background-color: white;
-}
-
-.titulo {
-    position: absolute;
-
-    top: 30px;
-    left: -90px; 
-
-    width: 250px;
-
-    transform: rotate(-27deg);
-}
-
-.titulo h1, h2 {
-    text-align: center;
-}
-.titulo h1 {
-    font-size: 12px;
-}
-.titulo h2 {
-    font-size: 10px;
-    margin-top: -8px;
-}
-
-.buttons {
-    position: absolute;
-    padding: 5px;
-    width: 150px;
-}
-.buttons img {
-    width: 100%;
-}
-
-.spotify {
-    top: 100px;
-    left: -50px;
-
-    transform: rotate(-27deg);
-
-    border: 0.5px solid green;    
-}
-
-.youmusic {
-    top: 140px;
-    left: 40px;
-    transform: rotate(-20deg);
-    border: 0.5px solid red;    
-}
-
-.deezer {
-    top: 240px;
-    left: -20px;
-    transform: rotate(-20deg);
-    border: 0.5px solid orange; 
-}
-
-.mobile--container {
-    position: fixed;
-
-    top: -75px;
-    left: -27%;
-
-    height: 200px;
-    width: 150%;
-    padding-bottom: 5px;
-
-    border-radius: 100%;
-
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-
-    border: 2px solid white;
-    background-color: black;
-
-}
-
-/* body, html {
-    width: 100vw;
-    height: 100vh;
-
-    margin: 0;
-    padding: 0;
-
-    box-sizing: border-box;
-
-    font-family: 'Roboto', sans-serif;
-    background-color: black;
-}
-
-a, button {
-    text-decoration: none;
-    color: white;
-    font-weight: 400;
-    font-size: 35px;
-    font-style: italic;
-    background: none;
-    border: 0;
-}
-
-nav {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-}
-
-main {
-    box-sizing: border-box;
-    border: 1px solid blue;
-
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-}
-
-picture {
-    width: 100%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    box-sizing: border-box;
-    margin-top: 100px;
-}
-
-section {
-    border: 1px solid red;
-    width: 100%;
-    box-sizing: border-box;
-    box-sizing: border-box;
-
-    display: flex;
-    justify-content: center;
-}
-
-
-
-.arco--fechado {
-    top: -160px;
-}
-
-.album--cover {
-    width: 80%;
-    max-width: 300px;
-}
-
-.arco--multimedia {
-    position: relative;
-    box-sizing: border-box;
-    width: 180px;
-    height: 400px;
-
-    margin-top: 60px;
-    border-radius: 100%;
-
-    background-color: black;
-    border: 1px solid white;    
-}
-
-.titulo--multimedia {
-    position: absolute;
-    width: 250px;
-    transform: rotate(-27deg);
-    top: 30px;
-    left: -80px;
-
-    border-radius: 50px;    
-
-    padding-top: 1px;
-    padding-bottom: 1px;
-
-    background-color: white;
-}
-
-.titulo--multimedia h1 {
-    color: black;
-    font-size: 14px;
-    white-space: nowrap;
-    text-align: center;
-}
-
-.titulo--multimedia h2 {
-    font-size: 10px;
-    text-align: center;
-    margin-top: -10px;
-} */ */

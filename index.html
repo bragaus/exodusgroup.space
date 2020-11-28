@@ -9,38 +9,88 @@
 <body>
 
     <div class="container">
-        <div class="container--album--cover">
 
-            <svg
-                class="play--icon"
-                viewBox="0 0 84.56 111.23">
+        <svg id="PAUSE__" viewBox="0 0 84.56 111.23">
+            <ellipse class="svg--contorno--branco svg--preto" 
+                cx="42.28" cy="55.62" rx="56.92" ry="38.02"
+                transform="translate(-25.22 73.64) rotate(-67.71)"/>
+            <rect class="svg--branco" x="30.28" y="34.12" width="8" height="43"/>
+            <rect class="svg--branco" x="47.28" y="34.12" width="8" height="43"/>
+        </svg>        
+
+        <div class="container--album--cover">
+            
+            <svg id="MUSICA__ANTERIOR" class="mudar--musica" 
+                viewBox="0 0 12.95 25.89">
                 <g id="Layer_2" data-name="Layer 2">
                     <g id="Layer_1-2" data-name="Layer 1">
-                        <ellipse 
-                            class="svg--preto" 
-                            cx="42.28" 
-                            cy="55.62" 
-                            rx="56.92" 
-                            ry="38.02" transform="translate(-25.22 73.64) rotate(-67.71)"/>
-                        <polygon 
-                            class="svg--branco" 
-                            points="34.6 80.56 34.6 32.67 58.54 56.62 34.6 80.56"/>
+                        <polygon class="svg--preto" points="12.95 25.89 12.95 0 0 12.95 12.95 25.89"/>
                     </g>
                 </g>
-            </svg>
+            </svg>            
 
-            <picture>
+            <svg class="play--icon" id="PLAY__"
+                viewBox="0 0 84.56 111.23">
+
+                <ellipse 
+                    class="svg--contorno--branco svg--preto"
+                    cx="42.28" 
+                    cy="55.62" 
+                    rx="56.92" 
+                    ry="38.02" 
+                    transform="translate(-25.22 73.64) rotate(-67.71)"/>
+                <polygon 
+                    class="svg--branco" 
+                    points="34.6 80.56 34.6 32.67 58.54 56.62 34.6 80.56"/>
+
+            </svg>
+           
+            <!-- <picture>
                 <img class="album--cover" src="./IMG/cover-min.png" alt="Nova Sinapse">
-                <!-- <figcaption><h1>Tuka Trip - Nova Sinapse</h1></figcaption> -->
-            </picture>
+                <figcaption><h1>Tuka Trip - Nova Sinapse</h1></figcaption>
+            </picture> -->
+
+            <svg id="PROXIMA__MUSICA" class="mudar--musica"
+                viewBox="0 0 12.95 25.89">
+                <g id="Layer_2" data-name="Layer 2">
+                    <g id="Layer_1-2" data-name="Layer 1">
+                        <polygon class="svg--preto" points="0 25.89 0 0 12.95 12.95 0 25.89"/>
+                    </g>
+                </g>
+            </svg>             
 
             <!-- <h2>Escolha onde ouvir</h2> -->
         </div>
 
+        <div id="_PLAY__LIST_">
+            <table id="TABLE__">
+                <tr>
+                    <th>track</th>
+                    <th>artista</th>
+                </tr>
+                <!-- <tr>
+                    <td>Luck Strike</td>
+                    <td>tuka trip</td>
+                </tr>
+                <tr>
+                    <td>Luck Strike</td>
+                    <td>tuka trip</td>
+                </tr> -->
+            </table>
+
+            <!-- <div class="_PLAY__LIST__HEADER_">
+                <h1>TRACK</h1>
+                <h1>ARTISTA</h1>
+            </div>
+            <div class="_PLAY__LIST__BODY_">
+                <h2>Luck Strike</h2>
+                <h2>Tuka Trip</h2>
+            </div> -->
+        </div>
+
         <div class="container--svg">
             
-            <svg 
-                class="spotify" 
+            <svg class="spotify" 
                 viewBox="0 0 333.64 148.49" 
                 onclick="javascript:window.open('http://stackoverflow.com', '_blank');">
 
@@ -60,7 +110,8 @@
                 <path class="spotify--logo" d="M272.38,54.88a4,4,0,1,1,2.87-4.59,3.8,3.8,0,0,1-2.87,4.59Zm-1.32-7.5a3.63,3.63,0,1,0,3.82,3,3.41,3.41,0,0,0-3.82-3Zm1.49,3.81,1.29,1.38-.85.15-1.16-1.27-.78.14L271.3,53l-.71.13L269.85,49l1.67-.29a1.31,1.31,0,0,1,1.68,1.06,1.24,1.24,0,0,1-.65,1.41Zm-.93-1.76-.93.17.23,1.3.93-.16c.47-.08.7-.38.62-.79s-.39-.6-.85-.52Z"/>
             </svg>
 
-            <svg class="youtubemusic" viewBox="0 0 330.52 162.47">
+            <svg class="youtubemusic"
+                viewBox="0 0 330.52 162.47">
                 <path class="svg--branco" d="M62.9,162c-34.53,0-53.75-12.58-60.49-39.59S6.63,75.21,36.92,58.87c27.82-15,69.38-25.49,113.38-36.58l2-.51C197.6,10.36,236.72.5,267.59.5,301.79.5,321,13.15,328,40.31c3.73,14.47,2.4,26.8-4.07,37.68-18.26,30.76-75.51,45.19-141.81,61.9l-2,.51C136.09,151.49,94.53,162,62.9,162Z"/>
                 <path d="M267.6,1c33.93,0,53,12.53,59.9,39.43,3.69,14.34,2.38,26.54-4,37.31-18.15,30.58-75.32,45-141.5,61.67l-2,.51C136,151,94.47,161.47,62.9,161.47c-34.26,0-53.33-12.46-60-39.21S7.11,75.53,37.16,59.31c27.76-15,69.3-25.45,113.27-36.54l2-.5C197.68,10.86,236.77,1,267.59,1h0m0-1c-31.4,0-72.21,10.41-117.41,21.8C60,44.53-12.89,63.18,1.92,122.5c7.41,29.7,29.48,40,61,40s72.27-10.23,117.3-21.58c90.17-22.74,163.7-40.79,148.26-100.71C320.76,10.3,298.83,0,267.59,0Z"/>
                 <path class="youtubemusic--cirulo " d="M99.76,136.21c18.29-4.62,29.05-24.51,24-44.43S99.87,59.44,81.57,64.06s-29,24.5-24,44.42S81.47,140.82,99.76,136.21Z"/>
@@ -69,7 +120,8 @@
                 <path class="svg--branco" d="M101.25,97.47l-14.52,15L81.35,91.14Z"/>
             </svg>
             
-            <svg viewBox="0 0 332.55 153.88" class="youtube">
+            <svg class="youtube"
+                viewBox="0 0 332.55 153.88">
                 <path class="svg--branco" d="M67.34,153.38c-38.79,0-59.6-13.43-65.51-42.26C-3.75,83.87,8.06,64.17,39,49.13c28.43-13.81,70.4-22.51,114.84-31.72l2-.42C196.8,8.51,235.44.5,265.34.5,303.7.5,324.44,14,330.6,43c3.11,14.62,1.26,26.88-5.66,37.48-19.56,30-77.38,41.93-144.33,55.8l-2,.42C137.15,145.27,98,153.38,67.34,153.38Z"/>
                 <path d="M265.35,1c18.43,0,32.44,3,42.84,9.19,11.5,6.85,18.67,17.61,21.92,32.89,3.09,14.49,1.25,26.62-5.59,37.1-19.44,29.78-77.17,41.74-144,55.59l-2,.43C137.07,144.78,98,152.88,67.34,152.88c-18.62,0-32.75-3-43.2-9.16C12.57,136.9,5.43,126.2,2.32,111-3.21,84,8.52,64.5,39.24,49.58,67.61,35.8,109.55,27.1,154,17.9l2-.42C196.86,9,235.48,1,265.35,1h0m0-1c-30.44,0-69.1,8.12-111.58,16.92C62.7,35.79-10.93,51.31,1.34,111.22c6.58,32.09,30.86,42.66,66,42.66,30.45,0,69.06-7.94,111.34-16.71C269.74,118.3,344,103.4,331.09,42.88,324.23,10.6,300.15,0,265.34,0Z"/>
                 <path d="M118,67.81a9.38,9.38,0,0,0-7.53-5.5c-5.74-.49-27.43,4-27.43,4s-21.68,4.49-26.75,7.21a9.37,9.37,0,0,0-4.73,8c-.21,6.28,2.37,18.75,2.37,18.75s2.59,12.47,5.28,18.15a9.36,9.36,0,0,0,7.53,5.5c5.74.48,27.42-4,27.42-4s21.69-4.49,26.76-7.22a9.39,9.39,0,0,0,4.73-8c.21-6.28-2.38-18.75-2.38-18.75S120.64,73.49,118,67.81Z"/>
@@ -174,7 +226,8 @@
                 <rect class="cls-13" x="88.81" y="73.29" width="9.59" height="6.01" transform="translate(-12.54 18.72) rotate(-10.71)"/>
             </svg>
 
-            <svg viewBox="0 0 276.56 832.66" class="arco">
+            <svg class="arco"
+                viewBox="0 0 276.56 832.66">
                 <ellipse id="Arco" class="arco-ellipse" cx="138.28" cy="416.33" rx="415.74" ry="136" transform="translate(-284.12 534.76) rotate(-87.29)"/>
             </svg>
 
@@ -182,9 +235,7 @@
     </div>
 
 
-    <script>
-
-    </script>
+    <script src="caralho.js"></script>
 </body>
 </html>
 
