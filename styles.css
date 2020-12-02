@@ -48,8 +48,20 @@ svg {
     position: relative;
 }
 
+#MUSICA__ANTERIOR, #PROXIMA__MUSICA {
+    cursor: pointer;
+}
+
 #PAUSE__ {
     display: none;
+    position: absolute; 
+    top: -30px; 
+    left: 0px;
+    cursor: pointer;   
+}
+
+#PLAY__ {
+    cursor: pointer;
 }
 
 #_PLAY__LIST_ {
@@ -57,18 +69,23 @@ svg {
 
     width: 250px;
 
-    margin-bottom: 10%;
+    /* margin-bottom: 10%; */
     box-sizing: border-box;
 }
 
 #_PLAY__LIST_ table {
     width: 100%;
+    border-collapse: collapse;
+    background-color: #363636;
+    color: white;
 }
 
-._PLAY__LIST__HEADER_ h1 {
-    font-size: 12px;
-    color: #fff;
-    font-weight: normal;
+._PLAY__LIST__HEADER_ th{
+    padding: 5%;
+}
+
+.TR_PLAYLIST_INNERHTML td {
+    padding: 2%;
 }
 
 ._PLAY__LIST__BODY_ h2 {
@@ -77,11 +94,6 @@ svg {
     font-weight: normal;    
 }
 
-._PLAY__LIST__HEADER_, ._PLAY__LIST__BODY_ {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
 
 
 .album--cover {
@@ -118,6 +130,12 @@ svg {
     z-index: 1;
 }
 
+.CONTAINER__PAUSE {
+    position: relative;
+    width: 250px;
+    height: 250px;
+}
+
 .container {
     position: relative;
     top: 10%;
@@ -147,11 +165,11 @@ svg {
     /* border: 2px solid green; */
 }
 
-.container--album--cover {
+#container--album--cover {
     position: relative;
     /* border: 1px solid red; */
 
-    margin-bottom: 10%;
+    margin-bottom: 20px;
 
     width: 250px;
     height: 250px;
@@ -159,17 +177,9 @@ svg {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    /* background-image: url('./IMG/cover-min.png'); */
-    /* background-image: url('./IMG/cover-min.png');    
-    background-size: cover;
-    opacity: 0.1; */
-
-    /* background-repeat: no-repeat, repeat; */
-    /* flex-direction: column; */
 }
 
-.container--album--cover::before {    
+#container--album--cover::before {    
     content: "";
     background-image: url('./IMG/cover-min.png');
     background-size: cover;
