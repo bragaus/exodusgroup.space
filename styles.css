@@ -48,6 +48,21 @@ svg {
     position: relative;
 }
 
+#LINHA__DO__TEMPO {
+    /* width: 250px; */
+    height: 5px;
+    /* background-color: white; */
+    margin-bottom: 3px;
+    /* align-self: flex-end; */
+    
+}
+
+#PROGRESSO__PA__NOIS {
+    background-color: aqua;
+    /* width: 250px; */
+    height: 5px;
+}
+
 #MUSICA__ANTERIOR, #PROXIMA__MUSICA {
     cursor: pointer;
 }
