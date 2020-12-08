@@ -10,6 +10,8 @@ let divPlaylist = document.getElementById("_PLAY__LIST_")
 let linhaDoTempo = document.getElementById("LINHA__DO__TEMPO")
 let progressoPaNois = document.getElementById("PROGRESSO__PA__NOIS")
 let timelineWidth = document.getElementById("PROGRESSO__PA__NOIS").offsetWidth
+let titulo = document.getElementById("MEU__AMIGO__ARTISTE")
+let subTitulo = document.getElementById("MUSICA_DO_MEU_AMIGO_ARTISTE")
 let duration
 var musicaAtual = 0
 
@@ -18,12 +20,14 @@ play.style.display = "block"
 musicaAnterior.style.opacity = 0
 proximaMusica.style.opacity = 0
 // pause.style.display = "block"
+titulo.style.display = "none"
+subTitulo.style.display = "none"
 
 const conteudo = [
-    {nome: "lucky strike", src: "./lucky.wav"},
-    {nome: "outra", src: "./dark.wav"},
-    {nome: "caralho", src: "./lucky.wav"},
-    {nome: "porra", src: "./dark.wav"},
+    {nome: "Lucky Strike", src: "./SONG/lucky.mp3", artista: "Tuka Trip"},
+    {nome: "Dark Trap", src: "./SONG/dark.mp3", artista: "Tuka Trip"},
+    {nome: "teste 3", src: "./SONG/lucky.mp3", artista: "Tuka Trip, Verks, Wizzy"},
+    {nome: "teste 4", src: "./SONG/dark.mp3", artista: "Tuka Trip, Kubark"},
 ]
 
 function trocarDeMusica(proximaMusica) {
@@ -45,6 +49,10 @@ function trocarDeMusica(proximaMusica) {
     }
 
     colorirLinhaMusicaAtiva(musicaAtual)
+    progressoPaNois.style.width = 0;
+    titulo.innerHTML = conteudo[musicaAtual].artista.toLocaleUpperCase()
+    subTitulo.innerHTML = conteudo[musicaAtual].nome.toLocaleUpperCase()
+
 }
 
 proximaMusica.addEventListener("click", () => trocarDeMusica(true))
@@ -67,21 +75,22 @@ function IniciarNovaMusica(musicaAtual) {
     colorirLinhaMusicaAtiva(musicaAtual)
     estilo.innerHTML = "#container--album--cover:before {opacity: 100}"
     if (divPlaylist.style.display === "none") divPlaylist.style.display = "block"
+
     musica = new Audio(conteudo[musicaAtual].src)
-musica.addEventListener("canplaythrough", () => {
-    duration = musica.duration
-}, false);
-    return     musica
+    musica.addEventListener("canplaythrough", () => {
+        duration = musica.duration
+    }, false);
+    musica.addEventListener("timeupdate", timeUpdate, false);
+    return musica
 }
-
-
 
 play.addEventListener("click", () => {
 
     play.style.display = "none"
     pause.style.display = "block"
     estilo.innerHTML = "#container--album--cover:before {opacity: 100}"
-
+    titulo.style.display = "block"
+    subTitulo.style.display = "block"
 
     if (divPlaylist.style.display === "none") {
         divPlaylist.style.display = "block"
@@ -94,17 +103,19 @@ play.addEventListener("click", () => {
     }
 
     musica.addEventListener("timeupdate", timeUpdate, false);
+    titulo.innerHTML = conteudo[musicaAtual].artista.toLocaleUpperCase()
+    subTitulo.innerHTML = conteudo[musicaAtual].nome.toLocaleUpperCase()
 })
 
 function timeUpdate() {
-    var playPercent = timelineWidth * (musica.currentTime / duration);
+    progressoPaNois.style.width = 0;
+    var playPercent = 250 * (musica.currentTime / duration);
     progressoPaNois.style.width = playPercent + "px";
-    // playhead.style.marginLeft = playPercent + "px";
-
-    // if (music.currentTime == duration) {
-    //     playButton.className = "";
-    //     playButton.className = "play";
-    // }    
+    musica.onended = function () {
+        trocarDeMusica(true)
+        musica.play()
+        musica.addEventListener("timeupdate", timeUpdate, false);
+    }
 }
 
 pause.addEventListener("click", () => {
@@ -130,7 +141,9 @@ conteudo.forEach((e) => {
 
 function IniciarMusicaApartirDoClique(musicaAtual) {
     IniciarNovaMusica(musicaAtual).play()
-
+    musica.addEventListener("timeupdate", timeUpdate, false);
+    titulo.innerHTML = conteudo[musicaAtual].artista.toLocaleUpperCase()
+    subTitulo.innerHTML = conteudo[musicaAtual].nome.toLocaleUpperCase()
     if (play.style.display === "block") {
         play.style.display = "none"
         pause.style.display = "block"
