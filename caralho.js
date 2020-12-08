@@ -12,16 +12,15 @@ let progressoPaNois = document.getElementById("PROGRESSO__PA__NOIS")
 let timelineWidth = document.getElementById("PROGRESSO__PA__NOIS").offsetWidth
 let titulo = document.getElementById("MEU__AMIGO__ARTISTE")
 let subTitulo = document.getElementById("MUSICA_DO_MEU_AMIGO_ARTISTE")
+let segundos = document.getElementById("SEGUNDOS__")
 let duration
 var musicaAtual = 0
-
 divPlaylist.style.display = "none"
-play.style.display = "block"
-musicaAnterior.style.opacity = 0
-proximaMusica.style.opacity = 0
+
+lidarComVisibilidade(false)
+// titulo.style.opacity = 100
+// subTitulo.style.opacity = 100
 // pause.style.display = "block"
-titulo.style.display = "none"
-subTitulo.style.display = "none"
 
 const conteudo = [
     {nome: "Lucky Strike", src: "./SONG/lucky.mp3", artista: "Tuka Trip"},
@@ -85,12 +84,7 @@ function IniciarNovaMusica(musicaAtual) {
 }
 
 play.addEventListener("click", () => {
-
-    play.style.display = "none"
-    pause.style.display = "block"
-    estilo.innerHTML = "#container--album--cover:before {opacity: 100}"
-    titulo.style.display = "block"
-    subTitulo.style.display = "block"
+    lidarComVisibilidade(true)
 
     if (divPlaylist.style.display === "none") {
         divPlaylist.style.display = "block"
@@ -111,19 +105,18 @@ function timeUpdate() {
     progressoPaNois.style.width = 0;
     var playPercent = 250 * (musica.currentTime / duration);
     progressoPaNois.style.width = playPercent + "px";
+    segundos.innerHTML = musica.currentTime
+
     musica.onended = function () {
         trocarDeMusica(true)
         musica.play()
         musica.addEventListener("timeupdate", timeUpdate, false);
     }
+
 }
 
 pause.addEventListener("click", () => {
-    play.style.display = "block"
-    pause.style.display = "none"
-    estilo.innerHTML = "#container--album--cover:before {opacity: 0.50}"
-    musicaAnterior.style.opacity = 100
-    proximaMusica.style.opacity = 100    
+    lidarComVisibilidade(false)
     musica.pause()
 })
 
@@ -131,21 +124,43 @@ var contadorAuxiliarPlaylistInnerHTML = 0
 conteudo.forEach((e) => {
 
     playlist.innerHTML += 
-    `<tr id="${e.nome}" class="TR_PLAYLIST_INNERHTML" onClick="IniciarMusicaApartirDoClique(${contadorAuxiliarPlaylistInnerHTML})">
+    `<tr id="${e.nome}" 
+        class="TR_PLAYLIST_INNERHTML" 
+        onClick="IniciarMusicaApartirDoClique(${contadorAuxiliarPlaylistInnerHTML})">
+
         <td>${e.nome}</td>
         <td>${e.src}</tr>
+
     </tr>`
 
     contadorAuxiliarPlaylistInnerHTML += 1
 })
 
-function IniciarMusicaApartirDoClique(musicaAtual) {
-    IniciarNovaMusica(musicaAtual).play()
+function IniciarMusicaApartirDoClique(contadorAuxiliarPlaylistInnerHTML) {
+    musicaAtual = contadorAuxiliarPlaylistInnerHTML
+    IniciarNovaMusica(contadorAuxiliarPlaylistInnerHTML).play()
     musica.addEventListener("timeupdate", timeUpdate, false);
-    titulo.innerHTML = conteudo[musicaAtual].artista.toLocaleUpperCase()
-    subTitulo.innerHTML = conteudo[musicaAtual].nome.toLocaleUpperCase()
-    if (play.style.display === "block") {
+    titulo.innerHTML = conteudo[contadorAuxiliarPlaylistInnerHTML].artista.toLocaleUpperCase()
+    subTitulo.innerHTML = conteudo[contadorAuxiliarPlaylistInnerHTML].nome.toLocaleUpperCase()
+    lidarComVisibilidade(true)
+}
+
+function lidarComVisibilidade(musicaEstaTocando) {
+    if (musicaEstaTocando) {
+        titulo.style.opacity = 100
+        subTitulo.style.opacity = 100
         play.style.display = "none"
         pause.style.display = "block"
-    }    
+        estilo.innerHTML = "#container--album--cover:before {opacity: 100}"    
+        segundos.style.display = "block"
+        progressoPaNois.style.display = "block"
+    } else {
+        titulo.style.opacity = 0
+        subTitulo.style.opacity = 0
+        play.style.display = "block"
+        pause.style.display = "none"
+        estilo.innerHTML = "#container--album--cover:before {opacity: 0.50}"
+        segundos.style.display = "none"
+        progressoPaNois.style.display = "none"
+    }
 }

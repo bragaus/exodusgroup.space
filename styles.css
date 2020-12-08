@@ -49,7 +49,21 @@ svg {
 }
 
 #DIV_DOS_TITULOS {
-    width: 160px;
+    width: 155px;
+}
+
+#DIV_DOS_SEGUNDOS {
+    width: 250px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    position: absolute;
+    top: 0;
+}
+
+#SEGUNDOS__ {
+    font-size: 10px;
+    color: white;
 }
 
 #MEU__AMIGO__ARTISTE, #MUSICA_DO_MEU_AMIGO_ARTISTE {
