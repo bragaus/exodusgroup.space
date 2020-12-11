@@ -48,6 +48,16 @@ svg {
     position: relative;
 }
 
+@media screen and (max-width: 250px) {
+    #CAI_FORA_DESSA_MERDA_DE_CELULAR {
+        width: 100vw;
+        height: 100vh;
+        z-index: 10000000000;
+        background-color: red;
+        background-image: url('./IMG/getoffyourphone2.svg');
+    }
+}
+
 #DIV_DOS_TITULOS {
     width: 155px;
 }
@@ -108,7 +118,8 @@ svg {
 #_PLAY__LIST_ {
     background-color: grey;
 
-    width: 250px;
+    /* width: 90%; */
+    min-width: 250px;
 
     /* margin-bottom: 10%; */
     box-sizing: border-box;
@@ -117,22 +128,33 @@ svg {
 #_PLAY__LIST_ table {
     width: 100%;
     border-collapse: collapse;
-    background-color: #363636;
+    background-color: #181818;
+
     color: white;
 }
 
 ._PLAY__LIST__HEADER_ th{
     padding: 5%;
+    font-weight: normal;
+    font-size: 12px;
 }
 
 .TR_PLAYLIST_INNERHTML td {
     padding: 2%;
+    font-size: 12px;
+
+    font-weight: normal;
+    text-overflow: ellipsis;
+    white-space: nowrap;    
+}
+
+.TR_PLAYLIST_INNERHTML:hover {
+    background-color: #78eeee3b !important;
+    cursor: pointer;
 }
 
 ._PLAY__LIST__BODY_ h2 {
-    font-size: 12px;
     color: #fff;
-    font-weight: normal;    
 }
 
 
@@ -165,7 +187,7 @@ svg {
     top: 0;
     height: 100%;
 
-    width: 100%;
+    width: 150%;
     max-width: 200px;
 
     z-index: 1;
@@ -212,6 +234,11 @@ svg {
 
     margin-bottom: 20px;
 
+    /* width: 90%;
+    height: 90vw;
+    min-width: 250px;
+    max-width: 400px;
+    max-height: 100vw; */
     width: 250px;
     height: 250px;
 
@@ -234,8 +261,8 @@ svg {
 
 .container--btns {
     position: relative;
-    width: 100%;
-    /* top: 25%; */
+    /* width: 100%; */
+    top: 25%;
 
     display: flex;
     align-items: center;

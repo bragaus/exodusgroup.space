@@ -10,6 +10,7 @@ let divPlaylist = document.getElementById("_PLAY__LIST_")
 let linhaDoTempo = document.getElementById("LINHA__DO__TEMPO")
 let progressoPaNois = document.getElementById("PROGRESSO__PA__NOIS")
 let timelineWidth = document.getElementById("PROGRESSO__PA__NOIS").offsetWidth
+let albumCoverWidth = document.getElementById("container--album--cover").offsetWidth
 let titulo = document.getElementById("MEU__AMIGO__ARTISTE")
 let subTitulo = document.getElementById("MUSICA_DO_MEU_AMIGO_ARTISTE")
 let segundos = document.getElementById("SEGUNDOS__")
@@ -22,11 +23,19 @@ lidarComVisibilidade(false)
 // subTitulo.style.opacity = 100
 // pause.style.display = "block"
 
+proximaMusica.addEventListener("click", () => trocarDeMusica(true))
+musicaAnterior.addEventListener("click", () => trocarDeMusica(false)) 
+
 const conteudo = [
     {nome: "Lucky Strike", src: "./SONG/lucky.mp3", artista: "Tuka Trip"},
     {nome: "Dark Trap", src: "./SONG/dark.mp3", artista: "Tuka Trip"},
-    {nome: "teste 3", src: "./SONG/lucky.mp3", artista: "Tuka Trip, Verks, Wizzy"},
-    {nome: "teste 4", src: "./SONG/dark.mp3", artista: "Tuka Trip, Kubark"},
+    {nome: "Feat com os manos", src: "./SONG/lucky.mp3", artista: "Tuka Trip, Verks, Wizzy"},
+    {nome: "Pussy faz splash", src: "./SONG/dark.mp3", artista: "Tuka Trip"},
+    {nome: "Holy baby", src: "./SONG/dark.mp3", artista: "Tuka Trip"},
+    {nome: "Shark boy", src: "./SONG/dark.mp3", artista: "Tuka Trip"},
+    {nome: "Não tinha nada", src: "./SONG/dark.mp3", artista: "Tuka Trip"},
+    {nome: "É o Triiii", src: "./SONG/dark.mp3", artista: "Tuka Trip"},
+    {nome: "Vinnie Jones", src: "./SONG/dark.mp3", artista: "Tuka Trip, Kubark"},
 ]
 
 function trocarDeMusica(proximaMusica) {
@@ -54,12 +63,9 @@ function trocarDeMusica(proximaMusica) {
 
 }
 
-proximaMusica.addEventListener("click", () => trocarDeMusica(true))
-musicaAnterior.addEventListener("click", () => trocarDeMusica(false))
-
 function colorirLinhaMusicaAtiva(musicaAtual) {
     for (var i = 0; i < tr.length; i++) {
-        tr[i].style.backgroundColor = "#363636"
+        tr[i].style.backgroundColor = "#181818"
         tr[i].style.color = "white"
     }
     document.getElementById(conteudo[musicaAtual].nome).style.color = "black"
@@ -99,11 +105,16 @@ play.addEventListener("click", () => {
     musica.addEventListener("timeupdate", timeUpdate, false);
     titulo.innerHTML = conteudo[musicaAtual].artista.toLocaleUpperCase()
     subTitulo.innerHTML = conteudo[musicaAtual].nome.toLocaleUpperCase()
+ 
+    proximaMusica.style.zIndex = -1
+    musicaAnterior.style.zIndex = -1     
+  
 })
 
 function timeUpdate() {
     progressoPaNois.style.width = 0;
-    var playPercent = 250 * (musica.currentTime / duration);
+    let albumCoverWidth = document.getElementById("container--album--cover").offsetWidth
+    var playPercent = albumCoverWidth * (musica.currentTime / duration);
     progressoPaNois.style.width = playPercent + "px";
     segundos.innerHTML = musica.currentTime
 
@@ -118,6 +129,8 @@ function timeUpdate() {
 pause.addEventListener("click", () => {
     lidarComVisibilidade(false)
     musica.pause()
+    proximaMusica.style.zIndex = 1
+    musicaAnterior.style.zIndex = 1           
 })
 
 var contadorAuxiliarPlaylistInnerHTML = 0
@@ -129,7 +142,7 @@ conteudo.forEach((e) => {
         onClick="IniciarMusicaApartirDoClique(${contadorAuxiliarPlaylistInnerHTML})">
 
         <td>${e.nome}</td>
-        <td>${e.src}</tr>
+        <td>${e.artista}</tr>
 
     </tr>`
 
