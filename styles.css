@@ -16,6 +16,19 @@ body, html {
     overflow-x: hidden;
 }
 
+/* ::-webkit-scrollbar {
+    width: 12px;             
+  
+::-webkit-scrollbar-track {
+    background: orange;      
+  }
+  
+::-webkit-scrollbar-thumb {
+    background-color: blue;    
+    border-radius: 20px;       
+    border: 3px solid orange;  
+  } */
+
 picture {
     width: 100%;
     top: 10%;
@@ -56,6 +69,23 @@ svg {
         background-color: red;
         background-image: url('./IMG/getoffyourphone2.svg');
     }
+}
+
+#div_titulo_principal {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    flex-direction: column;
+    margin-bottom: -20px;
+}
+
+#div_titulo_principal h1 {
+    margin: 0;
+    padding: 0;
+
+    font-size: 24px;
 }
 
 #DIV_DOS_TITULOS {
@@ -123,6 +153,29 @@ svg {
 
     /* margin-bottom: 10%; */
     box-sizing: border-box;
+    
+}
+
+/* #teste {
+    color: white;
+    height: 10px;
+}
+
+#div_teste {
+    height: 100px;
+    overflow: auto;
+} */
+
+/* #TABLE__ {
+    height: 10px;
+    overflow-y: auto;
+} */
+#_PLAY__LIST_ {
+    /* height: 110px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;          
+    scrollbar-color: blue orange;       */
 }
 
 #_PLAY__LIST_ table {
@@ -206,7 +259,7 @@ svg {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .container--svg {
