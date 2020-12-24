@@ -8,10 +8,19 @@
 
     <style>
         body {
-            margin: 0;
+            /* margin: 0;
             padding: 0;
             height: 100vh;
+            background-color: black; */
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: space-between;
             background-color: black;
+            overflow-x: hidden;
+
+            /* width: 100vw; */
+            height: 100vh;
         }
         h1, h2, span {
             margin: 0;
@@ -79,11 +88,11 @@
 
 
         .container__conteudo__principal {
-            /* border: 1px solid red; */
+            border: 1px solid red;
             box-sizing: border-box;
 
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             flex-direction: column;
             align-items: center;
 
@@ -108,9 +117,9 @@
             align-items: flex-start;
             justify-content: center;
             flex-direction: column;
-
-            width: 95%;
-            max-width: 300px;
+            border: 1px solid red;
+            width: 100%;
+            /* max-width: 300px; */
         }
 
         .container__informacao__musica {
@@ -312,7 +321,7 @@
         }        
         @media screen and (min-width: 768px) {
             .container__conteudo__principal {
-                width: 50%;
+                /* width: 50%; */
                 flex-direction: row;
                 justify-content: space-evenly;
             }
@@ -325,7 +334,7 @@
 </head>
 <body>
 
-    <div class="container__base">
+    <!-- <div class="container__base"> -->
 
         <div class="container__titulo__album">
             <h1>TUKA TRIP</h1>
@@ -704,7 +713,7 @@
         <div class="continer__rodape">
             <h1>coded by braga//us</h1>
         </div>
-    </div>
+    <!-- </div> -->
 
     <script>
 
