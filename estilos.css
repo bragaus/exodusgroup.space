@@ -50,17 +50,20 @@ h1, h2, span {
 
 #container__conteudo__principal__cabecalho {
     width: 100%;
-    border: 1px solid red;
 
-    justify-self: flex-start;
-    align-self: flex-start;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    border-bottom: 1px solid pink;
 }
 
 #container__conteudo__principal__corpo {
     width: 100%;
-    border: 1px solid red;
+    height: 100%;
+
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -80,8 +83,6 @@ h1, h2, span {
     z-index: 10;
 }
 
-/********************************************************* LADO ESQUERDO */
-
 .container__lado__esquerdo {
     position: relative;
 
@@ -93,6 +94,18 @@ h1, h2, span {
     flex-direction: column;
     align-items: center;
 }
+
+.container__lado__direito {
+    width: 100%;
+    height: 100%;
+ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/********************************************************* LADO ESQUERDO */
 
 .container__acao__usuario {
     display: block;
@@ -288,16 +301,6 @@ h1, h2, span {
 
 /********************************************************* LADO DIREITO */
 
-.container__lado__direito {
-    width: 100%;
-    height: 100%;
- 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
 #container__redes__transmissao__musica {
     position: relative;
 
@@ -317,7 +320,8 @@ h1, h2, span {
 
     width: 100%;
     min-width: 400px;
-    height: 500px;
+    height: 100%;
+    min-height: 500px;
 
     display: flex;
     justify-content: center;
@@ -386,6 +390,8 @@ h1, h2, span {
 }        
 @media screen and (min-width: 768px) {
     .container__conteudo__principal {
+        max-height: 600px;
+
         justify-content: space-evenly;
         margin: 2%;
 
@@ -393,11 +399,13 @@ h1, h2, span {
         height: 90vh;
         min-height: 500px;
     }
-
-    .container__lado__esquerdo {
-        margin-left: 3%;
-    }    
+    #container__conteudo__principal__corpo {
+        flex-direction: row;
+    }
     .container__nome__musica, .container__nome__artista {
         overflow: hidden;
-    } 
+    }
+    .container__svg__redes__transmissao__musica {
+        min-height: 400px;
+    }
 }
