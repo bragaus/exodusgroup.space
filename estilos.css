@@ -52,10 +52,17 @@ h1, h2, span {
     width: 100%;
 
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: flex-end;
 
     border-bottom: 1px solid pink;
+}
+#container__conteudo__principal__cabecalho__abas {
+    color: white;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
 }
 
 #container__conteudo__principal__corpo {
@@ -319,7 +326,6 @@ h1, h2, span {
     z-index: 2;
 
     width: 100%;
-    min-width: 400px;
     height: 100%;
     min-height: 500px;
 
@@ -331,6 +337,7 @@ h1, h2, span {
 .container__svg__redes__transmissao__musica svg {
     width: 40%;
 }
+
 
 #container__arco__spectrum {
     position: absolute;
@@ -346,11 +353,8 @@ h1, h2, span {
 
     width: 90%;
     left: 5%;
-    min-width: 300px;
 
     height: 100%;
-
-    /* top:2%; */
 }
 
 .container__rodape {
@@ -386,7 +390,11 @@ h1, h2, span {
     }    
     .container__nome__musica, .container__nome__artista {
         overflow: hidden;
-    }                     
+    }         
+    #container__arco__spectrum img {
+        min-width: 300px;
+    }
+    
 }        
 @media screen and (min-width: 768px) {
     .container__conteudo__principal {
