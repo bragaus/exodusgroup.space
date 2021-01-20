@@ -75,17 +75,25 @@ h1, h2, span {
     align-items: center;
 }
 
+#container__espacamento__lista__musica {
+    padding: 30px;
+    position: absolute;
+    width: 100%;
+    border: 1px solid red;
+    height: 100%;
+}
+
 #container__conteudo__lista__musica {
     display: none;
 
     position: absolute;
 
-    margin-bottom: 30px;
-
     border: 1px solid pink;
 
     width: 100%;
     max-width: 400px;
+
+    bottom: 10px;
 
     z-index: 10;
 }

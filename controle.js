@@ -4,6 +4,8 @@ let atributoMusicaTocando = document.querySelectorAll('[auxiliarOpacidade="music
     controleMusicaBtnIniciar = document.getElementById("controle__musica__btn__iniciar"),
     controleMusicaBtnPausar = document.getElementById("controle__musica__btn__pausar"),
     containerArcoSpectrum = document.getElementById("container__arco__spectrum"),
+    containerConteudoListaMusica = document.getElementById("container__conteudo__lista__musica"),
+    controleDuplicidadeMusicaTocando = false,
     musicaAtual = 0,
     musica = new Audio();
 
@@ -27,6 +29,7 @@ function controlarAcaoDoUsuario(tocarMusica) {
     if (tocarMusica) {
         lidarComOpacidadeDoContainerAcaoUsuario(100, 0);
         lidarComOpacidadeArteCapa(100);
+        containerConteudoListaMusica.style.display = "block"
     } else {
         lidarComOpacidadeDoContainerAcaoUsuario(0, 100);
         lidarComOpacidadeArteCapa(0.50);
@@ -37,10 +40,15 @@ function controlarAcaoDoUsuario(tocarMusica) {
 } controlarAcaoDoUsuario(false);
 
 function controlarMusica(tocarMusica) {
+
     if (tocarMusica) {
-        iniciarNovaMusica();
+        if (controleDuplicidadeMusicaTocando === false) {
+            iniciarNovaMusica();
+            controleDuplicidadeMusicaTocando = true
+        }
     } else {
         pausarMusica();
+        controleDuplicidadeMusicaTocando = false
     }
 }
 
